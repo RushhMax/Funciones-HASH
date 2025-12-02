@@ -1,4 +1,4 @@
-# sha1_manual.py
+
 # Implementación MANUAL de SHA-1 sin hashlib
 
 def _left_rotate(n, b):
@@ -6,7 +6,7 @@ def _left_rotate(n, b):
     return ((n << b) | (n >> (32 - b))) & 0xffffffff
 
 
-def sha1_manual(mensaje: bytes) -> str:
+def sha1(mensaje: bytes) -> str:
     # Convertir a bytes UTF-8
     if isinstance(mensaje, bytes):
       raise TypeError("La función solo acepta texto (str), no bytes.")
@@ -90,15 +90,15 @@ def sha1_manual(mensaje: bytes) -> str:
 
 
 # Para pruebas rápidas desde consola
-if __name__ == "__main__":
-    print("=== Calculadora SHA-1 ===")
+# if __name__ == "__main__":
+#     print("=== Calculadora SHA-1 ===")
 
-    while True:
-        texto = input("Ingrese texto para calcular SHA-1: ")
+#     while True:
+#         texto = input("Ingrese texto para calcular SHA-1: ")
 
-        validar_entrada(texto)
-        try:
-            resultado = sha1_manual(texto)
-            print(f"SHA-1: {resultado}\n")
-        except ValueError as e:
-            print(f"Error: {e}\n")
+#         validar_entrada(texto)
+#         try:
+#             resultado = sha1_manual(texto)
+#             print(f"SHA-1: {resultado}\n")
+#         except ValueError as e:
+#             print(f"Error: {e}\n")
