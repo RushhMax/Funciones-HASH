@@ -7,6 +7,8 @@ from tkinter import messagebox
 
 # Importar tus funciones
 from sha1 import sha1
+from md4 import md4_hash
+from md5 import md5_hash
 
 # ===========================
 # VALIDACIÓN GENERAL
@@ -34,6 +36,10 @@ def calcular_hash():
 
         if algoritmo == "SHA-1":
             resultado = sha1(texto)
+        elif algoritmo == "MD4":
+            resultado = md4_hash(texto)
+        elif algoritmo == "MD5":
+            resultado = md5_hash(texto)
         else:
             messagebox.showerror("Error", "Seleccione un algoritmo")
             return
@@ -69,7 +75,7 @@ seleccion_algo = ttk.StringVar()
 combo_algo = ttk.Combobox(
     frame_top,
     textvariable=seleccion_algo,
-    values=["MD5", "SHA-1", "SHA-256"],
+    values=["MD4", "MD5", "SHA-1", "SHA-256"],
     width=20,
     state="readonly"
 )
