@@ -9,6 +9,7 @@ from tkinter import messagebox
 from sha1 import sha1
 from md4 import md4_hash
 from md5 import md5_hash
+from sha256 import sha256_hash
 
 # ===========================
 # VALIDACIÓN GENERAL
@@ -40,6 +41,8 @@ def calcular_hash():
             resultado = md4_hash(texto)
         elif algoritmo == "MD5":
             resultado = md5_hash(texto)
+        elif algoritmo == "SHA-256":
+            resultado = sha256_hash(texto)
         else:
             messagebox.showerror("Error", "Seleccione un algoritmo")
             return
